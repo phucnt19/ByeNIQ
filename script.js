@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Tự động chuyển hướng sang file PDF sau 600ms để Google Analytics kịp ghi nhận lượt view
+    setTimeout(() => {
+        window.location.href = 'byebye.pdf';
+    }, 600);
+
     // Khởi tạo các icon từ Lucide
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
