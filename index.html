@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trình xem tài liệu PDF trực tuyến hiện đại, tối giản và bảo mật. Trải nghiệm đọc mượt mà và trực quan.">
+    <title>DocViewer - Xem tài liệu byebye.pdf</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i data-lucide="file-text" class="logo-icon"></i>
+                    <span class="logo-text">Doc<span class="gradient-text">Viewer</span></span>
+                </div>
+                <div class="divider"></div>
+                <div class="doc-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">byebye.pdf</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="theme-toggle" class="btn btn-icon" title="Chuyển chế độ sáng/tối" aria-label="Theme Toggle">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <button id="fullscreen-toggle" class="btn btn-icon" title="Xem toàn màn hình" aria-label="Fullscreen Toggle">
+                    <i data-lucide="maximize-2"></i>
+                </button>
+                <a href="byebye.pdf" download="byebye.pdf" class="btn btn-primary btn-download" title="Tải xuống tài liệu">
+                    <i data-lucide="download"></i>
+                    <span>Tải xuống</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <main class="app-main">
+            <!-- Sidebar: Document Details -->
+            <aside class="app-sidebar" id="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Thông tin tài liệu</h3>
+                    <div class="doc-card">
+                        <div class="doc-card-icon">
+                            <i data-lucide="file-pdf" class="pdf-icon"></i>
+                        </div>
+                        <div class="doc-card-details">
+                            <h4 class="doc-name" title="byebye.pdf">byebye.pdf</h4>
+                            <p class="doc-meta">Định dạng: PDF</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Chi tiết tập tin</h3>
+                    <div class="details-list">
+                        <div class="detail-item">
+                            <span class="detail-label">Kích thước:</span>
+                            <span class="detail-value">~68.0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Trạng thái:</span>
+                            <span class="detail-value"><span class="status-indicator online"></span>Đang hiển thị</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Nguồn:</span>
+                            <span class="detail-value">Bộ nhớ cục bộ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section description-section">
+                    <h3 class="sidebar-title">Mô tả</h3>
+                    <p class="doc-description">Tài liệu đã được tải lên thành công và nhúng trực tiếp vào trình duyệt của bạn. Bạn có thể sử dụng các công cụ phóng to, thu nhỏ và in ấn được tích hợp sẵn trong trình đọc.</p>
+                </div>
+
+                <div class="sidebar-footer">
+                    <p>© 2026 DocViewer. Phát triển bởi Antigravity.</p>
+                </div>
+            </aside>
+
+            <!-- PDF Viewer Area -->
+            <section class="viewer-container" id="viewer-container">
+                <div class="viewer-header">
+                    <div class="viewer-title">
+                        <i data-lucide="eye" class="title-icon"></i>
+                        <span>Trình xem trực tuyến</span>
+                    </div>
+                    <div class="viewer-actions">
+                        <button id="sidebar-toggle" class="btn btn-secondary btn-sm" title="Ẩn/Hiện thanh thông tin">
+                            <i data-lucide="sidebar"></i>
+                            <span>Thông tin</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pdf-wrapper">
+                    <!-- Spinner loading -->
+                    <div class="loader-overlay" id="loader">
+                        <div class="spinner"></div>
+                        <p class="loader-text">Đang tải tài liệu...</p>
+                        <p class="loader-subtext">Vui lòng chờ giây lát, tài liệu có kích thước lớn (~68MB)</p>
+                    </div>
+                    <!-- PDF Iframe -->
+                    <iframe 
+                        id="pdf-iframe" 
+                        src="byebye.pdf" 
+                        type="application/pdf"
+                        title="Tài liệu byebye.pdf"
+                        frameborder="0">
+                    </iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
